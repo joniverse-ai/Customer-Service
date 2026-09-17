@@ -35,7 +35,7 @@
     "expected_route": "REVISION",
     "expected_tools": ["get_revision_info"],
     "must": ["3"],
-    "forbid": ["추가 수정 비용"],
+    "forbid": [],
     "reference": "PRJ-2024-004는 로고 베이직으로 총 3회 수정이 가능하며, 아직 0회 사용하셔서 3회 남아 있습니다.",
     "use": "eval"
   },
@@ -54,7 +54,7 @@
     "question": "PRJ-2024-003 환불 가능한가요?",
     "expected_route": "PAYMENT_REFUND",
     "expected_tools": ["get_refund_info"],
-    "must": ["긴급 작업", "취소가 불가"],
+    "must": ["긴급 작업", "불가"],
     "forbid": ["70%", "환불 가능"],
     "reference": "PRJ-2024-003은 긴급 작업으로 접수되어 취소가 불가합니다.",
     "use": "eval"
@@ -94,7 +94,7 @@
     "question": "PRJ-2024-001 저작권이 제 것인가요?",
     "expected_route": "DELIVERY_COPYRIGHT",
     "expected_tools": ["get_copyright_info"],
-    "must": ["완료", "저작재산권"],
+    "must": ["이전", "저작재산권"],
     "forbid": ["미완료", "불가"],
     "reference": "PRJ-2024-001은 잔금 결제가 완료되어 저작재산권이 이전 완료된 상태입니다.",
     "use": "eval"

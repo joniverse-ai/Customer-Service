@@ -229,12 +229,23 @@ def node_escalate(state: dict) -> dict:
     else:
         reason = "자동 응답 처리 불가"
 
+    from tools import escalate_to_agent
+    result = escalate_to_agent.invoke({"reason": reason, "context": question})
+
+    prev_tools = list(state.get("tools_called", []))
+    prev_tools.append("escalate_to_agent")
+
+    prev_results = dict(state.get("tool_results", {}))
+    prev_results["escalate_to_agent"] = str(result)
+
     return {
         "answer": (
             "해당 문의는 담당자에게 전달하여 정확한 안내를 드리겠습니다. "
             "영업일 기준 1일 이내에 연락드리겠습니다."
         ),
         "action": "ESCALATE",
+        "tools_called": prev_tools,
+        "tool_results": prev_results,
     }
 
 
